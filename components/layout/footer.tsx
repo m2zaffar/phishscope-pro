@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github, Globe } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 export function Footer() {
   const { locale, setLocale } = useLocale();
@@ -11,43 +12,43 @@ export function Footer() {
 
   const footerSections = [
     {
-      title: locale === 'az' ? 'Məhsul' : 'Product',
+      title: t('footer.product', locale),
       links: [
-        { name: locale === 'az' ? 'Funksiyalar' : 'Features', href: '/features' },
-        { name: locale === 'az' ? 'Qiymətlər' : 'Pricing', href: '/pricing' },
-        { name: locale === 'az' ? 'Demo' : 'Demo', href: '/demo' },
-        { name: locale === 'az' ? 'API' : 'API', href: '/api' },
-        { name: locale === 'az' ? 'Sənədlər' : 'Documentation', href: '/docs' }
+        { name: t('nav.features', locale), href: '/features' },
+        { name: t('nav.pricing', locale), href: '/pricing' },
+        { name: t('demo', locale), href: '/demo' },
+        { name: t('api', locale), href: '/api' },
+        { name: t('footer.documentation', locale), href: '/docs' }
       ]
     },
     {
-      title: locale === 'az' ? 'Şirkət' : 'Company',
+      title: t('footer.company', locale),
       links: [
-        { name: locale === 'az' ? 'Haqqımızda' : 'About', href: '/about' },
-        { name: locale === 'az' ? 'Karyera' : 'Careers', href: '/careers' },
-        { name: locale === 'az' ? 'Əlaqə' : 'Contact', href: '/contact' },
-        { name: locale === 'az' ? 'Status' : 'Status', href: '/status' },
-        { name: locale === 'az' ? 'Blog' : 'Blog', href: '/blog' }
+        { name: t('nav.about', locale), href: '/about' },
+        { name: t('footer.careers', locale), href: '/careers' },
+        { name: t('footer.contact', locale), href: '/contact' },
+        { name: t('footer.status', locale), href: '/status' },
+        { name: t('footer.blog', locale), href: '/blog' }
       ]
     },
     {
-      title: locale === 'az' ? 'Dəstək' : 'Support',
+      title: t('footer.support', locale),
       links: [
-        { name: locale === 'az' ? 'Kömək Mərkəzi' : 'Help Center', href: '/help' },
-        { name: locale === 'az' ? 'Texniki Dəstək' : 'Technical Support', href: '/support' },
-        { name: locale === 'az' ? 'Təlimlər' : 'Training', href: '/training' },
-        { name: locale === 'az' ? 'İcma' : 'Community', href: '/community' },
-        { name: locale === 'az' ? 'Təhlükəsizlik' : 'Security', href: '/security' }
+        { name: t('footer.helpcenter', locale), href: '/help' },
+        { name: t('footer.technicalsupport', locale), href: '/support' },
+        { name: t('footer.training', locale), href: '/training' },
+        { name: t('footer.community', locale), href: '/community' },
+        { name: t('footer.security', locale), href: '/security' }
       ]
     },
     {
-      title: locale === 'az' ? 'Hüquqi' : 'Legal',
+      title: t('footer.legal', locale),
       links: [
-        { name: locale === 'az' ? 'İstifadə Şərtləri' : 'Terms of Service', href: '/terms' },
-        { name: locale === 'az' ? 'Gizlilik Siyasəti' : 'Privacy Policy', href: '/privacy' },
-        { name: locale === 'az' ? 'Cookie Siyasəti' : 'Cookie Policy', href: '/cookies' },
-        { name: locale === 'az' ? 'Lisenziya' : 'License', href: '/license' },
-        { name: locale === 'az' ? 'GDPR' : 'GDPR', href: '/gdpr' }
+        { name: t('footer.terms', locale), href: '/terms' },
+        { name: t('footer.privacy', locale), href: '/privacy' },
+        { name: t('footer.cookies', locale), href: '/cookies' },
+        { name: t('footer.license', locale), href: '/license' },
+        { name: t('footer.gdpr', locale), href: '/gdpr' }
       ]
     }
   ];
@@ -142,7 +143,7 @@ export function Footer() {
             </div>
             
             <div className="flex items-center space-x-4 text-sm text-slate-400">
-              <span>{locale === 'az' ? 'Dil:' : locale === 'tr' ? 'Dil:' : 'Language:'}</span>
+              <span>{t('footer.language', locale)}</span>
               <div className="flex items-center space-x-2">
                 <button
                   className={`flex items-center space-x-1 hover:text-white transition-colors ${locale === 'az' ? 'font-bold' : ''}`}
@@ -176,18 +177,18 @@ export function Footer() {
         <div className="border-t border-slate-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="text-slate-400 text-sm">
-              © {currentYear} PhishScope Pro. {locale === 'az' ? 'Bütün hüquqlar qorunur.' : 'All rights reserved.'}
+              © {currentYear} PhishScope Pro. {t('footer.rights', locale)}
             </div>
             
             <div className="flex items-center space-x-6 text-sm">
               <Link href="/terms" className="text-slate-400 hover:text-white transition-colors">
-                {locale === 'az' ? 'İstifadə Şərtləri' : 'Terms of Service'}
+                {t('footer.termsofservice', locale)}
               </Link>
               <Link href="/privacy" className="text-slate-400 hover:text-white transition-colors">
-                {locale === 'az' ? 'Gizlilik Siyasəti' : 'Privacy Policy'}
+                {t('footer.privacypolicy', locale)}
               </Link>
               <Link href="/cookies" className="text-slate-400 hover:text-white transition-colors">
-                {locale === 'az' ? 'Cookie Siyasəti' : 'Cookie Policy'}
+                {t('footer.cookiepolicy', locale)}
               </Link>
             </div>
           </div>

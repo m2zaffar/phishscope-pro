@@ -6,6 +6,7 @@ import { Upload, File, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 interface FileUploadProps {
   onFileSelect: (file: File) => void;
@@ -47,18 +48,15 @@ export function FileUpload({ onFileSelect, accept = { 'message/*': ['.eml', '.ms
               <div className="text-center">
                 <p className="text-lg font-medium">
                   {isDragActive 
-                    ? (locale === 'az' ? 'Faylı buraya atın...' : 'Drop email file here...')
-                    : (locale === 'az' ? 'Email faylını yükləyin' : 'Upload email file')
+                    ? t('fileupload.dropHere', locale)
+                    : t('fileupload.uploadFile', locale)
                   }
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
-                  {locale === 'az' 
-                    ? '.eml, .msg və ya ham email məlumatları' 
-                    : '.eml, .msg or raw email data'
-                  }
+                  {t('fileupload.fileDescription', locale)}
                 </p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  {locale === 'az' ? 'Maksimum 10MB' : 'Maximum 10MB'}
+                  {t('fileupload.maxSize', locale)}
                 </p>
               </div>
             </div>
@@ -88,8 +86,8 @@ export function FileUpload({ onFileSelect, accept = { 'message/*': ['.eml', '.ms
           {fileRejections[0].errors.map((error) => (
             <p key={error.code}>
               {error.code === 'file-too-large' 
-                ? (locale === 'az' ? 'Fayl çox böyükdür (max 10MB)' : 'File too large (max 10MB)')
-                : (locale === 'az' ? 'Dəstəklənməyən fayl formatı' : 'Unsupported file format')
+                ? t('fileupload.fileTooLarge', locale)
+                : t('fileupload.unsupportedFormat', locale)
               }
             </p>
           ))}

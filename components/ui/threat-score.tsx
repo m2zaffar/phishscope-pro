@@ -4,6 +4,7 @@ import { AlertTriangle, Shield, ShieldAlert } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 interface ThreatScoreProps {
   score: number;
@@ -28,10 +29,10 @@ export function ThreatScore({ score, confidence = 0, className = '' }: ThreatSco
   };
 
   const getScoreLabel = (score: number) => {
-    if (score >= 80) return locale === 'az' ? 'Yüksək təhdid' : 'High Risk';
-    if (score >= 60) return locale === 'az' ? 'Orta təhdid' : 'Medium Risk';
-    if (score >= 40) return locale === 'az' ? 'Aşağı təhdid' : 'Low Risk';
-    return locale === 'az' ? 'Təhlükəsiz' : 'Safe';
+    if (score >= 80) return t('threatscore.high', locale);
+    if (score >= 60) return t('threatscore.medium', locale);
+    if (score >= 40) return t('threatscore.low', locale);
+    return t('threatscore.safe', locale);
   };
 
   const getProgressColor = (score: number) => {
@@ -46,7 +47,7 @@ export function ThreatScore({ score, confidence = 0, className = '' }: ThreatSco
       <CardHeader className="pb-2">
         <CardTitle className="text-sm font-medium flex items-center gap-2">
           {getScoreIcon(score)}
-          {locale === 'az' ? 'Təhdid səviyyəsi' : 'Threat Score'}
+          {t('threatscore.label', locale)}
         </CardTitle>
       </CardHeader>
       <CardContent>
@@ -69,7 +70,7 @@ export function ThreatScore({ score, confidence = 0, className = '' }: ThreatSco
           
           {confidence > 0 && (
             <div className="text-xs text-muted-foreground">
-              {locale === 'az' ? 'Etibar səviyyəsi' : 'Confidence'}: {confidence}%
+              {t('threatscore.confidence', locale)}: {confidence}%
             </div>
           )}
         </div>

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Shield, Lock, Crown } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
 import Link from 'next/link';
+import { t } from '@/lib/localization';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ export function ProtectedRoute({ children, requiredFeature, fallback }: Protecte
         <div className="text-center space-y-4">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
           <p className="text-muted-foreground">
-            {locale === 'az' ? 'Yüklənir...' : 'Loading...'}
+            {t('loading', locale)}
           </p>
         </div>
       </div>
@@ -57,32 +58,23 @@ export function ProtectedRoute({ children, requiredFeature, fallback }: Protecte
               <Crown className="h-12 w-12 text-yellow-500" />
             </div>
             <CardTitle className="text-2xl">
-              {locale === 'az' ? 'Premium Funksiya' : 'Premium Feature'}
+              {t('premium.feature', locale)}
             </CardTitle>
             <p className="text-muted-foreground">
-              {locale === 'az'
-                ? 'Bu funksiyaya daxil olmaq üçün ödənişli plan tələb olunur.'
-                : 'This feature requires a paid plan to access.'
-              }
+              {t('premium.paidRequired', locale)}
             </p>
           </CardHeader>
           <CardContent className="space-y-4">
             {isTrialExpired ? (
               <div className="bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
                 <p className="text-sm text-red-800 dark:text-red-200">
-                  {locale === 'az'
-                    ? 'Sınaq dövrünüz bitib. Davam etmək üçün plan seçin.'
-                    : 'Your trial has expired. Choose a plan to continue.'
-                  }
+                  {t('premium.trialExpired', locale)}
                 </p>
               </div>
             ) : (
               <div className="bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
                 <p className="text-sm text-blue-800 dark:text-blue-200">
-                  {locale === 'az'
-                    ? 'Sınaq dövrünüzdə bu funksiyaya məhdud daxil ola bilərsiniz.'
-                    : 'You have limited access to this feature during your trial.'
-                  }
+                  {t('premium.limitedAccess', locale)}
                 </p>
               </div>
             )}
@@ -90,12 +82,12 @@ export function ProtectedRoute({ children, requiredFeature, fallback }: Protecte
             <div className="flex flex-col space-y-2">
               <Button asChild>
                 <Link href="/pricing">
-                  {locale === 'az' ? 'Planları Gör' : 'View Plans'}
+                  {t('premium.viewPlans', locale)}
                 </Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link href="/dashboard">
-                  {locale === 'az' ? 'Dashboard-a Qayıt' : 'Back to Dashboard'}
+                  {t('premium.backToDashboard', locale)}
                 </Link>
               </Button>
             </div>

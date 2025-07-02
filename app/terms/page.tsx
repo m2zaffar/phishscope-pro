@@ -5,106 +5,35 @@ import { Button } from '@/components/ui/button';
 import { Shield, FileText, AlertTriangle, CheckCircle, Users, Globe, Mail, Phone } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
 import Link from 'next/link';
+import { t } from '@/lib/localization';
 
 export default function TermsPage() {
   const { locale } = useLocale();
 
   const sections = [
     {
-      title: locale === 'az' ? 'Xidmət Təsviri' : 'Service Description',
-      content: locale === 'az' ? [
-        'AI əsaslı email təhlükə analizi',
-        'Real-time phishing aşkarlama',
-        'OSINT inteqrasiyası',
-        'Komanda əməkdaşlığı alətləri',
-        'Detallı hesabatlar və analitika'
-      ] : [
-        'AI-powered email threat analysis',
-        'Real-time phishing detection',
-        'OSINT integration',
-        'Team collaboration tools',
-        'Detailed reports and analytics'
-      ]
+      title: t('terms.serviceDescription', locale),
+      content: t('terms.serviceDescriptionContent', locale)
     },
     {
-      title: locale === 'az' ? 'İstifadə Şərtləri' : 'Usage Terms',
-      content: locale === 'az' ? [
-        'Xidməti yalnız qanuni məqsədlər üçün istifadə edin',
-        'Başqalarının hüquqlarını pozmayın',
-        'Xidmətin təhlükəsizliyini pozmayın',
-        'Məlumatları qanunsuz şəkildə paylaşmayın',
-        'Xidmət şərtlərini pozmayın'
-      ] : [
-        'Use the service only for lawful purposes',
-        'Do not violate others\' rights',
-        'Do not compromise service security',
-        'Do not share data unlawfully',
-        'Do not violate service terms'
-      ]
+      title: t('terms.usageTerms', locale),
+      content: t('terms.usageTermsContent', locale)
     },
     {
-      title: locale === 'az' ? 'Ödəniş Şərtləri' : 'Payment Terms',
-      content: locale === 'az' ? [
-        'Aylıq və ya illik abunəlik',
-        'Avtomatik yeniləmə',
-        '30 günlük pul qaytarma zəmanəti',
-        'Qiymət dəyişiklikləri əvvəlcədən bildirilir',
-        'Vergi və rüsumlar daxildir'
-      ] : [
-        'Monthly or annual subscriptions',
-        'Automatic renewal',
-        '30-day money-back guarantee',
-        'Price changes notified in advance',
-        'Taxes and fees included'
-      ]
+      title: t('terms.paymentTerms', locale),
+      content: t('terms.paymentTermsContent', locale)
     },
     {
-      title: locale === 'az' ? 'Məsuliyyət Məhdudiyyətləri' : 'Liability Limitations',
-      content: locale === 'az' ? [
-        'Xidmət "olduğu kimi" təqdim edilir',
-        'Dolayı zərərlər üçün məsuliyyət yoxdur',
-        'Maksimum məsuliyyət ödəniş məbləği qədərdir',
-        'Təcili hallar istisna olmaqla',
-        'Qanuni məcburiyyətlərə uyğun'
-      ] : [
-        'Service provided "as is"',
-        'No liability for indirect damages',
-        'Maximum liability limited to payment amount',
-        'Except in emergency situations',
-        'Subject to legal requirements'
-      ]
+      title: t('terms.liabilityLimitations', locale),
+      content: t('terms.liabilityLimitationsContent', locale)
     },
     {
-      title: locale === 'az' ? 'İstifadəçi Məsuliyyətləri' : 'User Responsibilities',
-      content: locale === 'az' ? [
-        'Hesab məlumatlarını qoruyun',
-        'Şübhəli fəaliyyətləri bildirin',
-        'Xidmət istifadə qaydalarına riayət edin',
-        'Məlumatların düzgünlüyünü təminat edin',
-        'Təhlükəsizlik tədbirlərini tətbiq edin'
-      ] : [
-        'Protect account credentials',
-        'Report suspicious activities',
-        'Follow service usage guidelines',
-        'Ensure data accuracy',
-        'Implement security measures'
-      ]
+      title: t('terms.userResponsibilities', locale),
+      content: t('terms.userResponsibilitiesContent', locale)
     },
     {
-      title: locale === 'az' ? 'Xidmətin Dayandırılması' : 'Service Suspension',
-      content: locale === 'az' ? [
-        'Şərtlərin pozulması halında',
-        'Ödəniş problemləri zamanı',
-        'Təhlükəsizlik təhdidləri üçün',
-        'Texniki problemlər zamanı',
-        'Qanuni tələblərə uyğun olaraq'
-      ] : [
-        'In case of terms violation',
-        'During payment issues',
-        'For security threats',
-        'During technical problems',
-        'As required by law'
-      ]
+      title: t('terms.serviceSuspension', locale),
+      content: t('terms.serviceSuspensionContent', locale)
     }
   ];
 
@@ -116,20 +45,17 @@ export default function TermsPage() {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <FileText className="h-8 w-8 text-blue-500" />
             <span className="text-2xl font-bold text-blue-600">
-              {locale === 'az' ? 'İstifadə Şərtləri' : 'Terms of Service'}
+              {t('terms.termsOfService', locale)}
             </span>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {locale === 'az' ? 'Xidmət Şərtləri' : 'Service Terms'}
+            {t('terms.serviceTerms', locale)}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {locale === 'az'
-              ? 'PhishScope Pro xidmətindən istifadə etmək üçün bu şərtləri oxuyun və qəbul edin. Bu sənəd xidmətimizin istifadə qaydalarını və hüquqlarını müəyyən edir.'
-              : 'Please read and accept these terms to use the PhishScope Pro service. This document defines the rules and rights for using our service.'
-            }
+            {t('terms.termsOfServiceDescription', locale)}
           </p>
           <div className="flex items-center justify-center space-x-4 text-sm text-muted-foreground">
-            <span>{locale === 'az' ? 'Son yenilənmə:' : 'Last updated:'}</span>
+            <span>{t('terms.lastUpdated', locale)}</span>
             <span>2024 yanvar 15</span>
           </div>
         </div>
@@ -145,13 +71,10 @@ export default function TermsPage() {
                 <AlertTriangle className="h-8 w-8 text-orange-600 mt-1" />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">
-                    {locale === 'az' ? 'Vacib Bildiriş' : 'Important Notice'}
+                    {t('terms.importantNotice', locale)}
                   </h3>
                   <p className="text-muted-foreground">
-                    {locale === 'az'
-                      ? 'Bu xidməti istifadə etməklə, siz bu şərtləri qəbul etmiş olursunuz. Əgər bu şərtlərlə razı deyilsinizsə, xidmətdən istifadə etməyin.'
-                      : 'By using this service, you agree to these terms. If you do not agree with these terms, do not use the service.'
-                    }
+                    {t('terms.importantNoticeDescription', locale)}
                   </p>
                 </div>
               </div>
@@ -164,23 +87,23 @@ export default function TermsPage() {
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="text-center space-y-2">
                   <Shield className="h-8 w-8 text-blue-600 mx-auto" />
-                  <h3 className="font-semibold">{locale === 'az' ? 'Təhlükəsizlik' : 'Security'}</h3>
+                  <h3 className="font-semibold">{t('terms.security', locale)}</h3>
                   <p className="text-sm text-muted-foreground">
-                    {locale === 'az' ? 'AI əsaslı qorunma' : 'AI-powered protection'}
+                    {t('terms.aiProtection', locale)}
                   </p>
                 </div>
                 <div className="text-center space-y-2">
                   <CheckCircle className="h-8 w-8 text-green-600 mx-auto" />
-                  <h3 className="font-semibold">{locale === 'az' ? 'Etibarlılıq' : 'Reliability'}</h3>
+                  <h3 className="font-semibold">{t('terms.reliability', locale)}</h3>
                   <p className="text-sm text-muted-foreground">
-                    {locale === 'az' ? '99.9% uptime' : '99.9% uptime'}
+                    {t('terms.uptime', locale)}
                   </p>
                 </div>
                 <div className="text-center space-y-2">
                   <Users className="h-8 w-8 text-purple-600 mx-auto" />
-                  <h3 className="font-semibold">{locale === 'az' ? 'Dəstək' : 'Support'}</h3>
+                  <h3 className="font-semibold">{t('terms.support', locale)}</h3>
                   <p className="text-sm text-muted-foreground">
-                    {locale === 'az' ? '24/7 dəstək' : '24/7 support'}
+                    {t('terms.support', locale)}
                   </p>
                 </div>
               </div>
@@ -218,25 +141,25 @@ export default function TermsPage() {
                 <CheckCircle className="h-8 w-8 text-green-600 mt-1" />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">
-                    {locale === 'az' ? 'Sınaq və Abunəlik Şərtləri' : 'Trial and Subscription Terms'}
+                    {t('terms.trialAndSubscription', locale)}
                   </h3>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-medium mb-2">{locale === 'az' ? 'Pulsuz Sınaq:' : 'Free Trial:'}</h4>
+                      <h4 className="font-medium mb-2">{t('terms.freeTrial', locale)}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        <li>• {locale === 'az' ? '7 günlük pulsuz sınaq' : '7-day free trial'}</li>
-                        <li>• {locale === 'az' ? 'Kredit kartı tələb olunmur' : 'No credit card required'}</li>
-                        <li>• {locale === 'az' ? 'İstədiyiniz zaman dayandırın' : 'Cancel anytime'}</li>
-                        <li>• {locale === 'az' ? 'Tam funksiyalar' : 'Full features'}</li>
+                        <li>• {t('terms.sevenDayTrial', locale)}</li>
+                        <li>• {t('terms.noCreditCard', locale)}</li>
+                        <li>• {t('terms.cancelAnytime', locale)}</li>
+                        <li>• {t('terms.fullFeatures', locale)}</li>
                       </ul>
                     </div>
                     <div>
-                      <h4 className="font-medium mb-2">{locale === 'az' ? 'Abunəlik:' : 'Subscription:'}</h4>
+                      <h4 className="font-medium mb-2">{t('terms.subscription', locale)}</h4>
                       <ul className="space-y-1 text-sm text-muted-foreground">
-                        <li>• {locale === 'az' ? 'Avtomatik yeniləmə' : 'Auto-renewal'}</li>
-                        <li>• {locale === 'az' ? '30 günlük zəmanət' : '30-day guarantee'}</li>
-                        <li>• {locale === 'az' ? 'İstədiyiniz zaman dəyişdirin' : 'Change anytime'}</li>
-                        <li>• {locale === 'az' ? 'Pul qaytarma' : 'Money back'}</li>
+                        <li>• {t('terms.autoRenewal', locale)}</li>
+                        <li>• {t('terms.guarantee', locale)}</li>
+                        <li>• {t('terms.changeAnytime', locale)}</li>
+                        <li>• {t('terms.moneyBack', locale)}</li>
                       </ul>
                     </div>
                   </div>
@@ -252,24 +175,21 @@ export default function TermsPage() {
                 <AlertTriangle className="h-8 w-8 text-red-600 mt-1" />
                 <div>
                   <h3 className="font-semibold text-lg mb-2">
-                    {locale === 'az' ? 'Qadağan Edilən Fəaliyyətlər' : 'Prohibited Activities'}
+                    {t('terms.prohibitedActivities', locale)}
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    {locale === 'az'
-                      ? 'Aşağıdakı fəaliyyətlər qadağandır və hesabınızın dayandırılmasına səbəb ola bilər:'
-                      : 'The following activities are prohibited and may result in account suspension:'
-                    }
+                    {t('terms.prohibitedActivitiesDescription', locale)}
                   </p>
                   <div className="grid md:grid-cols-2 gap-4 text-sm">
                     <ul className="space-y-1">
-                      <li>• {locale === 'az' ? 'Qanunsuz məzmun analizi' : 'Illegal content analysis'}</li>
-                      <li>• {locale === 'az' ? 'Xidmətin pozulması' : 'Service disruption'}</li>
-                      <li>• {locale === 'az' ? 'Hesab paylaşımı' : 'Account sharing'}</li>
+                      <li>• {t('terms.illegalContent', locale)}</li>
+                      <li>• {t('terms.serviceDisruption', locale)}</li>
+                      <li>• {t('terms.accountSharing', locale)}</li>
                     </ul>
                     <ul className="space-y-1">
-                      <li>• {locale === 'az' ? 'Avtomatlaşdırılmış hücumlar' : 'Automated attacks'}</li>
-                      <li>• {locale === 'az' ? 'Məlumat pozğunluğu' : 'Data manipulation'}</li>
-                      <li>• {locale === 'az' ? 'Lisenziya pozulması' : 'License violation'}</li>
+                      <li>• {t('terms.automatedAttacks', locale)}</li>
+                      <li>• {t('terms.dataManipulation', locale)}</li>
+                      <li>• {t('terms.licenseViolation', locale)}</li>
                     </ul>
                   </div>
                 </div>
@@ -282,13 +202,10 @@ export default function TermsPage() {
             <CardContent className="pt-6">
               <div className="text-center space-y-4">
                 <h3 className="text-2xl font-bold">
-                  {locale === 'az' ? 'Suallarınız Var?' : 'Have Questions?'}
+                  {t('terms.haveQuestions', locale)}
                 </h3>
                 <p className="text-blue-100">
-                  {locale === 'az'
-                    ? 'İstifadə şərtlərimiz haqqında suallarınız varsa, bizimlə əlaqə saxlayın.'
-                    : 'If you have questions about our terms of service, please contact us.'
-                  }
+                  {t('terms.haveQuestionsDescription', locale)}
                 </p>
                 <div className="flex items-center justify-center space-x-6">
                   <div className="flex items-center space-x-2">
@@ -303,12 +220,12 @@ export default function TermsPage() {
                 <div className="flex items-center justify-center space-x-4">
                   <Button variant="secondary" asChild>
                     <Link href="/contact">
-                      {locale === 'az' ? 'Əlaqə Saxla' : 'Contact Us'}
+                      {t('terms.contactUs', locale)}
                     </Link>
                   </Button>
                   <Button variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
                     <Link href="/privacy">
-                      {locale === 'az' ? 'Gizlilik Siyasəti' : 'Privacy Policy'}
+                      {t('terms.privacyPolicy', locale)}
                     </Link>
                   </Button>
                 </div>

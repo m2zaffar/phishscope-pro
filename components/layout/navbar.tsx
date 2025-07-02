@@ -7,6 +7,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { useLocale } from '@/hooks/use-locale';
 import { useAuth } from '@/lib/auth';
 import { useState } from 'react';
+import { t } from '@/lib/localization';
 
 export default function Navbar() {
   const { locale, setLocale } = useLocale();
@@ -16,13 +17,13 @@ export default function Navbar() {
   // Simplified navigation items
   const navItems = user 
     ? [
-        { href: '/dashboard', label: locale === 'az' ? 'Dashboard' : 'Dashboard' },
-        { href: '/analyze', label: locale === 'az' ? 'Analiz' : 'Analyze' },
+        { href: '/dashboard', label: t('nav.dashboard', locale) },
+        { href: '/analyze', label: t('nav.analyze', locale) },
       ]
     : [
-        { href: '/about', label: locale === 'az' ? 'Haqqımızda' : 'About' },
-        { href: '/features', label: locale === 'az' ? 'Funksiyalar' : 'Features' },
-        { href: '/pricing', label: locale === 'az' ? 'Qiymətlər' : 'Pricing' },
+        { href: '/about', label: t('nav.about', locale) },
+        { href: '/features', label: t('nav.features', locale) },
+        { href: '/pricing', label: t('nav.pricing', locale) },
       ];
 
   return (
@@ -85,7 +86,7 @@ export default function Navbar() {
             {!user && (
               <Button variant="ghost" size="sm" asChild className="h-9">
                 <Link href="/demo">
-                  {locale === 'az' ? 'Demo' : 'Demo'}
+                  {t('demo', locale)}
                 </Link>
               </Button>
             )}
@@ -108,7 +109,7 @@ export default function Navbar() {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={logout} className="text-red-600">
                     <LogOut className="mr-2 h-4 w-4" />
-                    {locale === 'az' ? 'Çıxış' : 'Logout'}
+                    {t('auth.logout', locale)}
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -116,12 +117,12 @@ export default function Navbar() {
               <div className="flex items-center space-x-2">
                 <Button variant="ghost" size="sm" asChild className="h-9">
                   <Link href="/login">
-                    {locale === 'az' ? 'Daxil ol' : 'Sign in'}
+                    {t('auth.signin', locale)}
                   </Link>
                 </Button>
                 <Button size="sm" asChild className="h-9 bg-blue-600 hover:bg-blue-700">
                   <Link href="/register">
-                    {locale === 'az' ? 'Qeydiyyat' : 'Sign up'}
+                    {t('auth.signup', locale)}
                   </Link>
                 </Button>
               </div>
@@ -178,7 +179,7 @@ export default function Navbar() {
                 {!user && (
                   <Button variant="ghost" size="sm" asChild className="w-full justify-start h-9">
                     <Link href="/demo">
-                      {locale === 'az' ? 'Demo' : 'Demo'}
+                      {t('demo', locale)}
                     </Link>
                   </Button>
                 )}
@@ -187,18 +188,18 @@ export default function Navbar() {
                 {user ? (
                   <Button variant="ghost" size="sm" onClick={logout} className="w-full justify-start text-red-600 h-9">
                     <LogOut className="h-4 w-4 mr-2" />
-                    {locale === 'az' ? 'Çıxış' : 'Logout'}
+                    {t('auth.logout', locale)}
                   </Button>
                 ) : (
                   <div className="flex items-center space-x-2">
                     <Button variant="ghost" size="sm" asChild className="flex-1 h-9">
                       <Link href="/login">
-                        {locale === 'az' ? 'Daxil ol' : 'Sign in'}
+                        {t('auth.signin', locale)}
                       </Link>
                     </Button>
                     <Button size="sm" asChild className="flex-1 h-9 bg-blue-600 hover:bg-blue-700">
                       <Link href="/register">
-                        {locale === 'az' ? 'Qeydiyyat' : 'Sign up'}
+                        {t('auth.signup', locale)}
                       </Link>
                     </Button>
                   </div>

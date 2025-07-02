@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Globe, Shield, AlertTriangle, MapPin, Building } from 'lucide-react';
 import { OSINTResults } from '@/types';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 interface OSINTEnrichmentProps {
   results: OSINTResults;
@@ -17,22 +18,22 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
   return (
     <div className="space-y-6">
       <h3 className="text-lg font-semibold">
-        {locale === 'az' ? 'OSINT Zənginləşdirmə Nəticələri' : 'OSINT Enrichment Results'}
+        {t('osint.results', locale)}
       </h3>
 
       <Tabs defaultValue="ips" className="w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="ips" className="flex items-center gap-2">
             <Globe className="h-4 w-4" />
-            {locale === 'az' ? 'IP-lər' : 'IPs'} ({results.ip_enrichment.length})
+            {t('osint.ips', locale)} ({results.ip_enrichment.length})
           </TabsTrigger>
           <TabsTrigger value="domains" className="flex items-center gap-2">
             <Building className="h-4 w-4" />
-            {locale === 'az' ? 'Domenlər' : 'Domains'} ({results.domain_enrichment.length})
+            {t('osint.domains', locale)} ({results.domain_enrichment.length})
           </TabsTrigger>
           <TabsTrigger value="urls" className="flex items-center gap-2">
             <Shield className="h-4 w-4" />
-            {locale === 'az' ? 'URL-lər' : 'URLs'} ({results.url_enrichment.length})
+            {t('osint.urls', locale)} ({results.url_enrichment.length})
           </TabsTrigger>
         </TabsList>
 
@@ -40,7 +41,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
           {results.ip_enrichment.length === 0 ? (
             <Card>
               <CardContent className="p-6 text-center text-muted-foreground">
-                {locale === 'az' ? 'IP məlumatı tapılmadı' : 'No IP data found'}
+                {t('osint.noIpData', locale)}
               </CardContent>
             </Card>
           ) : (
@@ -52,12 +53,12 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                     <div className="flex gap-2">
                       <Badge variant={ip.is_malicious ? 'destructive' : 'default'}>
                         {ip.is_malicious 
-                          ? (locale === 'az' ? 'Zərərli' : 'Malicious')
-                          : (locale === 'az' ? 'Təmiz' : 'Clean')
+                          ? t('osint.malicious', locale)
+                          : t('osint.clean', locale)
                         }
                       </Badge>
                       <Badge variant="outline">
-                        {ip.abuse_confidence}% {locale === 'az' ? 'etibar' : 'confidence'}
+                        {ip.abuse_confidence}% {t('osint.confidence', locale)}
                       </Badge>
                     </div>
                   </CardTitle>
@@ -75,7 +76,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                     <div className="flex items-center gap-2">
                       <AlertTriangle className="h-4 w-4 text-muted-foreground" />
                       <span className="text-sm">
-                        {ip.reports} {locale === 'az' ? 'şikayət' : 'reports'}
+                        {ip.reports} {t('osint.reports', locale)}
                       </span>
                     </div>
                   </div>
@@ -89,7 +90,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
           {results.domain_enrichment.length === 0 ? (
             <Card>
               <CardContent className="p-6 text-center text-muted-foreground">
-                {locale === 'az' ? 'Domen məlumatı tapılmadı' : 'No domain data found'}
+                {t('osint.noDomainData', locale)}
               </CardContent>
             </Card>
           ) : (
@@ -101,8 +102,8 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                     <div className="flex gap-2">
                       <Badge variant={domain.is_suspicious ? 'destructive' : 'default'}>
                         {domain.is_suspicious 
-                          ? (locale === 'az' ? 'Şübhəli' : 'Suspicious')
-                          : (locale === 'az' ? 'Təmiz' : 'Clean')
+                          ? t('osint.suspicious', locale)
+                          : t('osint.clean', locale)
                         }
                       </Badge>
                       <Badge variant="outline">
@@ -115,7 +116,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <span className="text-sm font-medium">
-                        {locale === 'az' ? 'Yaradılma tarixi' : 'Created'}:
+                        {t('osint.created', locale)}
                       </span>
                       <p className="text-sm text-muted-foreground">
                         {new Date(domain.creation_date).toLocaleDateString()}
@@ -123,7 +124,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                     </div>
                     <div>
                       <span className="text-sm font-medium">
-                        {locale === 'az' ? 'Qeydiyyatçı' : 'Registrar'}:
+                        {t('osint.registrar', locale)}
                       </span>
                       <p className="text-sm text-muted-foreground">{domain.registrar}</p>
                     </div>
@@ -138,7 +139,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
           {results.url_enrichment.length === 0 ? (
             <Card>
               <CardContent className="p-6 text-center text-muted-foreground">
-                {locale === 'az' ? 'URL məlumatı tapılmadı' : 'No URL data found'}
+                {t('osint.noUrlData', locale)}
               </CardContent>
             </Card>
           ) : (
@@ -156,7 +157,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                   {url.threats.length > 0 && (
                     <div>
                       <span className="text-sm font-medium">
-                        {locale === 'az' ? 'Təhdidlər' : 'Threats'}:
+                        {t('osint.threats', locale)}
                       </span>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {url.threats.map((threat, i) => (
@@ -170,7 +171,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                   {url.categories.length > 0 && (
                     <div>
                       <span className="text-sm font-medium">
-                        {locale === 'az' ? 'Kateqoriyalar' : 'Categories'}:
+                        {t('osint.categories', locale)}
                       </span>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {url.categories.map((category, i) => (
@@ -184,7 +185,7 @@ export function OSINTEnrichment({ results }: OSINTEnrichmentProps) {
                   {url.screenshot_url && (
                     <div>
                       <span className="text-sm font-medium">
-                        {locale === 'az' ? 'Ekran görüntüsü' : 'Screenshot'}:
+                        {t('osint.screenshot', locale)}
                       </span>
                       <img 
                         src={url.screenshot_url} 
