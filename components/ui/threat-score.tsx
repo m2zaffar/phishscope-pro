@@ -34,6 +34,13 @@ export function ThreatScore({ score, confidence = 0, className = '' }: ThreatSco
     return locale === 'az' ? 'Təhlükəsiz' : 'Safe';
   };
 
+  const getProgressColor = (score: number) => {
+    if (score >= 80) return 'bg-red-500';
+    if (score >= 60) return 'bg-orange-500';
+    if (score >= 40) return 'bg-yellow-500';
+    return 'bg-green-500';
+  };
+
   return (
     <Card className={className}>
       <CardHeader className="pb-2">
@@ -53,17 +60,12 @@ export function ThreatScore({ score, confidence = 0, className = '' }: ThreatSco
             </span>
           </div>
           
-          <Progress 
-            value={score} 
-            className="h-2"
-            // @ts-ignore - Custom color based on score
-            style={{
-              '--progress-foreground': score >= 80 ? 'hsl(0 84.2% 60.2%)' : 
-                                     score >= 60 ? 'hsl(25 95% 53%)' : 
-                                     score >= 40 ? 'hsl(45 93% 47%)' : 
-                                     'hsl(142 76% 36%)'
-            } as React.CSSProperties}
-          />
+          <div className="relative h-2 w-full bg-secondary rounded-full overflow-hidden">
+            <div 
+              className={`h-full transition-all duration-300 ${getProgressColor(score)}`}
+              style={{ width: `${score}%` }}
+            />
+          </div>
           
           {confidence > 0 && (
             <div className="text-xs text-muted-foreground">
