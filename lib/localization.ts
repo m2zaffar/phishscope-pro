@@ -6,6 +6,12 @@ export const translations: Translations = {
   'nav.analyze': { az: 'Təhlil', en: 'Analyze', tr: 'Analiz' },
   'nav.reports': { az: 'Hesabatlar', en: 'Reports', tr: 'Raporlar' },
   'nav.settings': { az: 'Tənzimləmələr', en: 'Settings', tr: 'Ayarlar' },
+  'nav.about': { az: 'Haqqımızda', en: 'About', tr: 'Hakkımızda' },
+  'nav.features': { az: 'Funksiyalar', en: 'Features', tr: 'Özellikler' },
+  'nav.pricing': { az: 'Qiymətlər', en: 'Pricing', tr: 'Fiyatlandırma' },
+  'nav.switch_to_az': { az: 'Azərbaycan dilinə keç', en: 'Switch to Azerbaijani', tr: 'Azerbaycanca geç' },
+  'nav.switch_to_en': { az: 'İngilis dilinə keç', en: 'Switch to English', tr: 'İngilizceye geç' },
+  'nav.switch_to_tr': { az: 'Türkçəyə keç', en: 'Switch to Turkish', tr: 'Türkçeye geç' },
   
   // Landing Page
   'hero.title': { 
@@ -73,6 +79,14 @@ export const translations: Translations = {
   'footer.termsofservice': { az: 'Xidmət şərtləri', en: 'Terms of Service', tr: 'Hizmet Şartları' },
   'footer.privacypolicy': { az: 'Gizlilik siyasəti', en: 'Privacy Policy', tr: 'Gizlilik Politikası' },
   'footer.cookiepolicy': { az: 'Kuki siyasəti', en: 'Cookie Policy', tr: 'Çerez Politikası' },
+  'footer.brandDescription': {
+    az: 'AI texnologiyası ilə email təhlükəsizliyini inqilab etdirən lider platforma. Komandaların təhlükəli emailləri aşkarlamasına və qorunmasına kömək edirik.',
+    en: 'The leading platform revolutionizing email security with AI technology. We help teams detect and protect against malicious emails.',
+    tr: 'Yapay zeka teknolojisiyle e-posta güvenliğinde devrim yaratan lider platform. Ekiplerin zararlı e-postaları tespit etmesine ve korunmasına yardımcı oluyoruz.'
+  },
+  'footer.lang_az': { az: 'Azərbaycan', en: 'Azerbaijani', tr: 'Azerbaycanca' },
+  'footer.lang_en': { az: 'İngilis', en: 'English', tr: 'İngilizce' },
+  'footer.lang_tr': { az: 'Türkçə', en: 'Turkish', tr: 'Türkçe' },
 
   // OSINT
   'osint.results': { az: 'Nəticələr', en: 'Results', tr: 'Sonuçlar' },

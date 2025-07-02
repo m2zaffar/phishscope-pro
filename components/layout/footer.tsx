@@ -65,10 +65,7 @@ export function Footer() {
               <span className="text-xl font-bold">PhishScope Pro</span>
             </div>
             <p className="text-slate-300 mb-6 max-w-md">
-              {locale === 'az'
-                ? 'AI texnologiyası ilə email təhlükəsizliyini inqilab etdirən lider platforma. Komandaların təhlükəli emailləri aşkarlamasına və qorunmasına kömək edirik.'
-                : 'The leading platform revolutionizing email security with AI technology. We help teams detect and protect against malicious emails.'
-              }
+              {t('footer.brandDescription', locale)}
             </p>
             
             {/* Contact Info */}
@@ -150,7 +147,7 @@ export function Footer() {
                   onClick={() => setLocale('az')}
                 >
                   <span className="text-lg">🇦🇿</span>
-                  <span>Azərbaycan</span>
+                  <span>{t('footer.lang_az', locale)}</span>
                 </button>
                 <span>|</span>
                 <button
@@ -158,7 +155,7 @@ export function Footer() {
                   onClick={() => setLocale('en')}
                 >
                   <span className="text-lg">🇺🇸</span>
-                  <span>English</span>
+                  <span>{t('footer.lang_en', locale)}</span>
                 </button>
                 <span>|</span>
                 <button
@@ -166,7 +163,7 @@ export function Footer() {
                   onClick={() => setLocale('tr')}
                 >
                   <span className="text-lg">🇹🇷</span>
-                  <span>Türkçe</span>
+                  <span>{t('footer.lang_tr', locale)}</span>
                 </button>
               </div>
             </div>

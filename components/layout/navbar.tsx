@@ -103,7 +103,7 @@ export default function Navbar() {
                 <DropdownMenuContent align="end" className="w-48">
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard">
-                      Dashboard
+                      {t('nav.dashboard', locale)}
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
@@ -171,7 +171,7 @@ export default function Navbar() {
                     }}
                     className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium"
                   >
-                    {locale === 'az' ? 'Türkçeye geç' : locale === 'tr' ? 'Switch to English' : 'Azərbaycan dilinə keç'}
+                    {locale === 'az' ? t('nav.switch_to_tr', locale) : locale === 'tr' ? t('nav.switch_to_en', locale) : t('nav.switch_to_az', locale)}
                   </button>
                 </div>
 
