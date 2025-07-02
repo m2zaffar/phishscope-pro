@@ -132,5 +132,6 @@ export interface Translations {
   [key: string]: {
     az: string;
     en: string;
+    tr: string;
   };
 }

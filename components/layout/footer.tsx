@@ -5,7 +5,7 @@ import { Shield, Mail, Phone, MapPin, Linkedin, Twitter, Github, Globe } from 'l
 import { useLocale } from '@/hooks/use-locale';
 
 export function Footer() {
-  const { locale } = useLocale();
+  const { locale, setLocale } = useLocale();
 
   const currentYear = new Date().getFullYear();
 
@@ -142,16 +142,30 @@ export function Footer() {
             </div>
             
             <div className="flex items-center space-x-4 text-sm text-slate-400">
-              <span>{locale === 'az' ? 'Dil:' : 'Language:'}</span>
+              <span>{locale === 'az' ? 'Dil:' : locale === 'tr' ? 'Dil:' : 'Language:'}</span>
               <div className="flex items-center space-x-2">
-                <button className="flex items-center space-x-1 hover:text-white transition-colors">
+                <button
+                  className={`flex items-center space-x-1 hover:text-white transition-colors ${locale === 'az' ? 'font-bold' : ''}`}
+                  onClick={() => setLocale('az')}
+                >
                   <span className="text-lg">🇦🇿</span>
                   <span>Azərbaycan</span>
                 </button>
                 <span>|</span>
-                <button className="flex items-center space-x-1 hover:text-white transition-colors">
+                <button
+                  className={`flex items-center space-x-1 hover:text-white transition-colors ${locale === 'en' ? 'font-bold' : ''}`}
+                  onClick={() => setLocale('en')}
+                >
                   <span className="text-lg">🇺🇸</span>
                   <span>English</span>
+                </button>
+                <span>|</span>
+                <button
+                  className={`flex items-center space-x-1 hover:text-white transition-colors ${locale === 'tr' ? 'font-bold' : ''}`}
+                  onClick={() => setLocale('tr')}
+                >
+                  <span className="text-lg">🇹🇷</span>
+                  <span>Türkçe</span>
                 </button>
               </div>
             </div>

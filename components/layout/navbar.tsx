@@ -61,7 +61,7 @@ export default function Navbar() {
                 <Button variant="ghost" size="sm" className="h-9 px-3">
                   <Globe className="h-4 w-4 mr-2" />
                   <span className="text-sm font-medium">
-                    {locale === 'az' ? 'AZ' : 'EN'}
+                    {locale === 'az' ? 'AZ' : locale === 'tr' ? 'TR' : 'EN'}
                   </span>
                 </Button>
               </DropdownMenuTrigger>
@@ -73,6 +73,10 @@ export default function Navbar() {
                 <DropdownMenuItem onClick={() => setLocale('az')}>
                   <Languages className="mr-2 h-4 w-4" />
                   Azərbaycan
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => setLocale('tr')}>
+                  <Languages className="mr-2 h-4 w-4" />
+                  Türkçe
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -159,10 +163,14 @@ export default function Navbar() {
                 <div className="flex items-center space-x-2">
                   <Globe className="h-4 w-4 text-gray-500" />
                   <button
-                    onClick={() => setLocale(locale === 'az' ? 'en' : 'az')}
+                    onClick={() => {
+                      if (locale === 'en') setLocale('az');
+                      else if (locale === 'az') setLocale('tr');
+                      else setLocale('en');
+                    }}
                     className="text-sm text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white font-medium"
                   >
-                    {locale === 'az' ? 'Switch to English' : 'Azərbaycan dilinə keç'}
+                    {locale === 'az' ? 'Türkçeye geç' : locale === 'tr' ? 'Switch to English' : 'Azərbaycan dilinə keç'}
                   </button>
                 </div>
 

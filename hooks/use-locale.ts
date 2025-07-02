@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { getLocale, setLocale as setGlobalLocale } from '@/lib/localization';
 
 export const useLocale = () => {
-  const [locale, setLocaleState] = useState<'az' | 'en'>('en');
+  const [locale, setLocaleState] = useState<'az' | 'en' | 'tr'>('en');
 
   useEffect(() => {
     const currentLocale = getLocale();
@@ -19,7 +19,7 @@ export const useLocale = () => {
     return () => window.removeEventListener('locale-change', handleLocaleChange);
   }, []);
 
-  const setLocale = (newLocale: 'az' | 'en') => {
+  const setLocale = (newLocale: 'az' | 'en' | 'tr') => {
     setGlobalLocale(newLocale);
     setLocaleState(newLocale);
   };
