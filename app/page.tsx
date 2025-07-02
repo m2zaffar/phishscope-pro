@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Shield, Zap, Eye, BarChart3, Users, Globe, Award, ArrowRight, CheckCircle, Star, TrendingUp, Lock } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 export default function HomePage() {
   const { locale } = useLocale();
@@ -13,57 +14,57 @@ export default function HomePage() {
   const features = [
     {
       icon: Shield,
-      title: locale === 'az' ? 'AI Təhlükəsizlik Analizi' : 'AI Security Analysis',
-      description: locale === 'az' ? 'Müasir AI texnologiyaları ilə phishing hücumlarını dəqiq müəyyən edin' : 'Accurately detect phishing attacks with modern AI technology',
+      title: t('home.features.aiSecurityAnalysis', locale),
+      description: t('home.features.aiSecurityAnalysisDescription', locale),
       color: 'text-blue-600'
     },
     {
       icon: Zap,
-      title: locale === 'az' ? 'Real-time Təhlükəsizlik' : 'Real-time Security',
-      description: locale === 'az' ? 'Anlıq təhlükəsizlik təhliləri və xəbərdarlıqlar' : 'Instant security analysis and alerts',
+      title: t('home.features.realTimeSecurity', locale),
+      description: t('home.features.realTimeSecurityDescription', locale),
       color: 'text-purple-600'
     },
     {
       icon: Eye,
-      title: locale === 'az' ? 'Görünən Təhlükəsizlik' : 'Visible Security',
-      description: locale === 'az' ? 'Təhlükəsizlik statusunuzu həmişə izləyin' : 'Always monitor your security status',
+      title: t('home.features.visibleSecurity', locale),
+      description: t('home.features.visibleSecurityDescription', locale),
       color: 'text-green-600'
     },
     {
       icon: BarChart3,
-      title: locale === 'az' ? 'Detallı Hesabatlar' : 'Detailed Reports',
-      description: locale === 'az' ? 'Təhlükəsizlik performansınız haqqında ətraflı məlumat' : 'Detailed insights about your security performance',
+      title: t('home.features.detailedReports', locale),
+      description: t('home.features.detailedReportsDescription', locale),
       color: 'text-orange-600'
     }
   ];
 
   const stats = [
-    { number: '99.9%', label: locale === 'az' ? 'Dəqiqlik' : 'Accuracy' },
-    { number: '50K+', label: locale === 'az' ? 'Təhlükəsiz Email' : 'Emails Secured' },
-    { number: '24/7', label: locale === 'az' ? 'Monitorinq' : 'Monitoring' },
-    { number: '100+', label: locale === 'az' ? 'Müştəri' : 'Customers' }
+    { number: '99.9%', label: t('home.stats.accuracy', locale) },
+    { number: '50K+', label: t('home.stats.emailsSecured', locale) },
+    { number: '24/7', label: t('home.stats.monitoring', locale) },
+    { number: '100+', label: t('home.stats.customers', locale) }
   ];
 
   const testimonials = [
     {
       name: 'Əli Məmmədov',
-      role: locale === 'az' ? 'IT Direktoru' : 'IT Director',
+      role: t('home.testimonials.itDirector', locale),
       company: 'TechCorp',
-      content: locale === 'az' ? 'PhishScope Pro bizim təhlükəsizlik strategiyamızı tamamilə dəyişdi. İndi daha təhlükəsizik.' : 'PhishScope Pro completely transformed our security strategy. We feel much safer now.',
+      content: t('home.testimonials.aliMammadovContent', locale),
       rating: 5
     },
     {
       name: 'Sarah Johnson',
-      role: locale === 'az' ? 'Təhlükəsizlik Məsləhətçisi' : 'Security Consultant',
+      role: t('home.testimonials.securityConsultant', locale),
       company: 'SecureNet',
-      content: locale === 'az' ? 'Ən yaxşı phishing analiz platformu. Həqiqətən tövsiyə edirəm.' : 'The best phishing analysis platform. Highly recommended.',
+      content: t('home.testimonials.sarahJohnsonContent', locale),
       rating: 5
     },
     {
       name: 'Məryəm Əliyeva',
-      role: locale === 'az' ? 'Sistem Administratoru' : 'System Administrator',
+      role: t('home.testimonials.systemAdministrator', locale),
       company: 'DataFlow',
-      content: locale === 'az' ? 'İstifadəsi asan və çox effektiv. Komandamız üçün mükəmməl həll.' : 'Easy to use and very effective. Perfect solution for our team.',
+      content: t('home.testimonials.maryamAliyevaContent', locale),
       rating: 5
     }
   ];
@@ -86,29 +87,26 @@ export default function HomePage() {
               <div className="flex items-center justify-center space-x-4 mb-8">
                 <Badge variant="secondary" className="px-6 py-2 text-sm font-semibold bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
                   <Shield className="w-4 h-4 mr-2" />
-                  {locale === 'az' ? 'AI Təhlükəsizlik Platformu' : 'AI Security Platform'}
+                  {t('home.platform', locale)}
                 </Badge>
                 <Badge variant="secondary" className="px-6 py-2 text-sm font-semibold bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300">
                   <TrendingUp className="w-4 h-4 mr-2" />
-                  {locale === 'az' ? '99.9% Dəqiqlik' : '99.9% Accuracy'}
+                  {t('home.accuracy', locale)}
                 </Badge>
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                  {locale === 'az' ? 'Phishing Hücumlarına' : 'Stop Phishing'}
+                  {t('home.stopPhishing', locale)}
                 </span>
                 <br />
                 <span className="text-gray-900 dark:text-white">
-                  {locale === 'az' ? 'Son Qoyun' : 'Attacks'}
+                  {t('home.attacks', locale)}
                 </span>
               </h1>
 
               <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                {locale === 'az' 
-                  ? 'Müasir AI texnologiyaları ilə email təhlükəsizliyinizi təmin edin. Phishing hücumlarını real-time aşkarlayın və qarşısını alın.' 
-                  : 'Secure your email with modern AI technology. Detect and prevent phishing attacks in real-time.'
-                }
+                {t('home.secureEmail', locale)}
               </p>
             </div>
 
@@ -117,7 +115,7 @@ export default function HomePage() {
               <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-12 py-6 text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
                 <Link href="/register" className="flex items-center space-x-3">
                   <Shield className="w-6 h-6" />
-                  <span>{locale === 'az' ? 'Pulsuz Başlayın' : 'Start Free Trial'}</span>
+                  <span>{t('home.startFreeTrial', locale)}</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
@@ -125,7 +123,7 @@ export default function HomePage() {
               <Button asChild variant="outline" size="lg" className="border-3 border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 font-semibold px-12 py-6 text-lg transition-all duration-300 hover:scale-105">
                 <Link href="/demo" className="flex items-center space-x-3">
                   <Eye className="w-6 h-6" />
-                  <span>{locale === 'az' ? 'Demo İzləyin' : 'Watch Demo'}</span>
+                  <span>{t('home.watchDemo', locale)}</span>
                 </Link>
               </Button>
             </div>
@@ -162,13 +160,10 @@ export default function HomePage() {
           <div className="text-center space-y-16">
             <div className="space-y-8">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
-                {locale === 'az' ? 'Niyə PhishScope Pro?' : 'Why PhishScope Pro?'}
+                {t('home.whyPhishScopePro', locale)}
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                {locale === 'az' 
-                  ? 'Müasir təhlükəsizlik texnologiyaları ilə email təhlükəsizliyinizi təmin edin' 
-                  : 'Secure your email with cutting-edge security technology'
-                }
+                {t('home.whyPhishScopeProDescription', locale)}
               </p>
             </div>
 
@@ -201,13 +196,10 @@ export default function HomePage() {
           <div className="text-center space-y-16">
             <div className="space-y-8">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
-                {locale === 'az' ? 'Müştərilərimiz Nə Deyir?' : 'What Our Customers Say?'}
+                {t('home.whatOurCustomersSay', locale)}
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                {locale === 'az' 
-                  ? 'Dünyanın aparıcı şirkətləri bizə etibar edir' 
-                  : 'Leading companies worldwide trust us'
-                }
+                {t('home.leadingCompaniesWorldwideTrustUs', locale)}
               </p>
             </div>
 
@@ -246,13 +238,10 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center space-y-12">
           <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white">
-              {locale === 'az' ? 'Təhlükəsizliyinizi Təmin Edin' : 'Secure Your Security'}
+              {t('home.secureYourSecurity', locale)}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300">
-              {locale === 'az' 
-                ? 'İndi başlayın və email təhlükəsizliyinizi növbəti səviyyəyə qaldırın' 
-                : 'Start now and take your email security to the next level'
-              }
+              {t('home.startNowAndTakeYourEmailSecurityToTheNextLevel', locale)}
             </p>
           </div>
 
@@ -260,7 +249,7 @@ export default function HomePage() {
             <Button asChild size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-12 py-6 text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
               <Link href="/register" className="flex items-center space-x-3">
                 <Shield className="w-6 h-6" />
-                <span>{locale === 'az' ? 'Pulsuz Başlayın' : 'Start Free Trial'}</span>
+                <span>{t('home.startFreeTrial', locale)}</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
@@ -268,7 +257,7 @@ export default function HomePage() {
             <Button asChild variant="outline" size="lg" className="border-3 border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800 font-semibold px-12 py-6 text-lg transition-all duration-300 hover:scale-105">
               <Link href="/contact" className="flex items-center space-x-3">
                 <Users className="w-6 h-6" />
-                <span>{locale === 'az' ? 'Satışla Əlaqə' : 'Contact Sales'}</span>
+                <span>{t('home.contactSales', locale)}</span>
               </Link>
             </Button>
           </div>

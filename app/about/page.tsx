@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Shield, Users, Target, Award, Globe, Zap, Lock, BarChart3, Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
 import Link from 'next/link';
+import { t } from '@/lib/localization';
 
 export default function AboutPage() {
   const { locale } = useLocale();
@@ -15,22 +16,22 @@ export default function AboutPage() {
   const stats = [
     {
       number: '10M+',
-      label: locale === 'az' ? 'Analiz Edilmiş Email' : 'Emails Analyzed',
+      label: t('about.stats.emailsAnalyzed', locale),
       icon: Mail
     },
     {
       number: '99.9%',
-      label: locale === 'az' ? 'Dəqiqlik Dərəcəsi' : 'Accuracy Rate',
+      label: t('about.stats.accuracyRate', locale),
       icon: Target
     },
     {
       number: '500+',
-      label: locale === 'az' ? 'Məmnun Müştəri' : 'Happy Customers',
+      label: t('about.stats.happyCustomers', locale),
       icon: Users
     },
     {
       number: '24/7',
-      label: locale === 'az' ? 'Dəstək' : 'Support',
+      label: t('about.stats.support', locale),
       icon: Phone
     }
   ];
@@ -38,40 +39,32 @@ export default function AboutPage() {
   const team = [
     {
       name: 'Elmar Hüseynov',
-      role: locale === 'az' ? 'Baş İcraçı Direktor' : 'Chief Executive Officer',
-      bio: locale === 'az' 
-        ? '10+ illik təhlükəsizlik təcrübəsi ilə PhishScope Pro-nu qurdu. Əvvəllər böyük texnologiya şirkətlərində təhlükəsizlik məsləhətçisi olub.'
-        : 'Founded PhishScope Pro with 10+ years of security experience. Previously worked as a security consultant for major tech companies.',
+      role: t('about.team.ceo.role', locale),
+      bio: t('about.team.ceo.bio', locale),
       image: '/team/ceo.jpg',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Vüsal Əhmədov',
-      role: locale === 'az' ? 'Texnologiya Direktoru' : 'Chief Technology Officer',
-      bio: locale === 'az'
-        ? 'AI və maşın öyrənmə sahəsində mütəxəssis. Stanford Universitetində kompüter elmləri təhsili alıb.'
-        : 'Expert in AI and machine learning. Studied computer science at Stanford University.',
+      role: t('about.team.cto.role', locale),
+      bio: t('about.team.cto.bio', locale),
       image: '/team/cto.jpg',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Tural Məmmədov',
-      role: locale === 'az' ? 'Məhsul Direktoru' : 'Chief Product Officer',
-      bio: locale === 'az'
-        ? 'İstifadəçi təcrübəsi və məhsul strategiyası sahəsində 8 il təcrübə. Əvvəllər Google və Microsoft-da işləyib.'
-        : '8 years of experience in user experience and product strategy. Previously worked at Google and Microsoft.',
+      role: t('about.team.cpo.role', locale),
+      bio: t('about.team.cpo.bio', locale),
       image: '/team/cpo.jpg',
       linkedin: '#',
       twitter: '#'
     },
     {
       name: 'Rəşad Qurbanov',
-      role: locale === 'az' ? 'Təhlükəsizlik Direktoru' : 'Chief Security Officer',
-      bio: locale === 'az'
-        ? 'Siber təhlükəsizlik sahəsində 12 il təcrübə. Əvvəllər həftəlik təhlükəsizlik araşdırmaları aparıb.'
-        : '12 years of experience in cybersecurity. Previously conducted weekly security research.',
+      role: t('about.team.cso.role', locale),
+      bio: t('about.team.cso.bio', locale),
       image: '/team/cso.jpg',
       linkedin: '#',
       twitter: '#'
@@ -81,31 +74,23 @@ export default function AboutPage() {
   const values = [
     {
       icon: Shield,
-      title: locale === 'az' ? 'Təhlükəsizlik' : 'Security',
-      description: locale === 'az'
-        ? 'Məlumatlarınızın təhlükəsizliyi bizim ən yüksək prioritetimizdir'
-        : 'Your data security is our highest priority'
+      title: t('about.values.security', locale),
+      description: t('about.values.securityDescription', locale)
     },
     {
       icon: Target,
-      title: locale === 'az' ? 'Dəqiqlik' : 'Accuracy',
-      description: locale === 'az'
-        ? '99.9% dəqiqlik dərəcəsi ilə təhlükəli emailləri aşkarlayırıq'
-        : 'We detect malicious emails with 99.9% accuracy'
+      title: t('about.values.accuracy', locale),
+      description: t('about.values.accuracyDescription', locale)
     },
     {
       icon: Zap,
-      title: locale === 'az' ? 'Sürət' : 'Speed',
-      description: locale === 'az'
-        ? 'Real-time analiz ilə dərhal nəticələr əldə edin'
-        : 'Get instant results with real-time analysis'
+      title: t('about.values.speed', locale),
+      description: t('about.values.speedDescription', locale)
     },
     {
       icon: Users,
-      title: locale === 'az' ? 'Komanda' : 'Team',
-      description: locale === 'az'
-        ? 'Komandanızın təhlükəsizliyini qoruyun və əməkdaşlıq edin'
-        : 'Protect your team and collaborate effectively'
+      title: t('about.values.team', locale),
+      description: t('about.values.teamDescription', locale)
     }
   ];
 
@@ -121,17 +106,14 @@ export default function AboutPage() {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Shield className="h-8 w-8 text-blue-500" />
             <span className="text-2xl font-bold text-blue-600">
-              {locale === 'az' ? 'Haqqımızda' : 'About Us'}
+              {t('about.title', locale)}
             </span>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {locale === 'az' ? 'Email Təhlükəsizliyinin Gələcəyi' : 'The Future of Email Security'}
+            {t('about.futureOfEmailSecurity', locale)}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {locale === 'az'
-              ? 'PhishScope Pro, AI texnologiyası ilə email təhlükəsizliyini inqilab etdirən lider platformadır. Komandaların təhlükəli emailləri aşkarlamasına və qorunmasına kömək edirik.'
-              : 'PhishScope Pro is the leading platform revolutionizing email security with AI technology. We help teams detect and protect against malicious emails.'
-            }
+            {t('about.description', locale)}
           </p>
         </div>
       </div>
@@ -158,23 +140,20 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">
-              {locale === 'az' ? 'Missiyamız' : 'Our Mission'}
+              {t('about.mission', locale)}
             </h2>
             <p className="text-lg text-muted-foreground">
-              {locale === 'az'
-                ? 'Hər komandanın təhlükəsiz email mühitində işləməsi üçün güclü və istifadəçi dostu həllər təqdim etmək. AI texnologiyası ilə təhlükəli emailləri real vaxtda aşkarlayırıq və komandalarınızı qoruyuruq.'
-                : 'To provide powerful and user-friendly solutions for every team to work in a secure email environment. We detect malicious emails in real-time using AI technology and protect your teams.'
-              }
+              {t('about.missionDescription', locale)}
             </p>
             <div className="flex items-center space-x-4">
               <Button asChild>
                 <Link href="/demo">
-                  {locale === 'az' ? 'Demo İzlə' : 'Watch Demo'}
+                  {t('about.watchDemo', locale)}
                 </Link>
               </Button>
               <Button variant="outline" asChild>
                 <Link href="/contact">
-                  {locale === 'az' ? 'Bizimlə Əlaqə' : 'Contact Us'}
+                  {t('about.contactUs', locale)}
                 </Link>
               </Button>
             </div>
@@ -185,26 +164,26 @@ export default function AboutPage() {
                 <div className="flex items-center space-x-3 mb-4">
                   <Shield className="h-6 w-6 text-green-500" />
                   <span className="font-semibold">
-                    {locale === 'az' ? 'Təhlükəsiz Email' : 'Secure Email'}
+                    {t('about.secureEmail', locale)}
                   </span>
                 </div>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm">
-                      {locale === 'az' ? 'AI təhlükə analizi' : 'AI threat analysis'}
+                      {t('about.aiThreatAnalysis', locale)}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm">
-                      {locale === 'az' ? 'Real-time bildirişlər' : 'Real-time alerts'}
+                      {t('about.realTimeAlerts', locale)}
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm">
-                      {locale === 'az' ? 'OSINT inteqrasiyası' : 'OSINT integration'}
+                      {t('about.osintIntegration', locale)}
                     </span>
                   </div>
                 </div>
@@ -218,13 +197,10 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">
-            {locale === 'az' ? 'Dəyərlərimiz' : 'Our Values'}
+            {t('about.ourValues', locale)}
           </h2>
           <p className="text-muted-foreground">
-            {locale === 'az'
-              ? 'Fəaliyyətimizi idarə edən əsas prinsiplər'
-              : 'The core principles that guide our work'
-            }
+            {t('about.corePrinciples', locale)}
           </p>
         </div>
 
@@ -247,13 +223,10 @@ export default function AboutPage() {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">
-            {locale === 'az' ? 'Rəhbərlik Komandası' : 'Leadership Team'}
+            {t('about.leadershipTeam', locale)}
           </h2>
           <p className="text-muted-foreground">
-            {locale === 'az'
-              ? 'Təcrübəli mütəxəssislərdən ibarət komandamız'
-              : 'Our team of experienced professionals'
-            }
+            {t('about.experiencedProfessionals', locale)}
           </p>
         </div>
 
@@ -304,13 +277,10 @@ export default function AboutPage() {
           <CardContent className="pt-6">
             <div className="text-center space-y-6">
               <h2 className="text-3xl font-bold">
-                {locale === 'az' ? 'Bizimlə Əlaqə Saxlayın' : 'Get in Touch'}
+                {t('about.getInTouch', locale)}
               </h2>
               <p className="text-blue-100 max-w-2xl mx-auto">
-                {locale === 'az'
-                  ? 'Email təhlükəsizliyi haqqında suallarınız varsa, komandamızla əlaqə saxlayın.'
-                  : 'Have questions about email security? Get in touch with our team.'
-                }
+                {t('about.emailSecurityQuestions', locale)}
               </p>
               <div className="flex items-center justify-center space-x-8">
                 <div className="flex items-center space-x-2">
@@ -328,7 +298,7 @@ export default function AboutPage() {
               </div>
               <Button size="lg" variant="secondary" asChild>
                 <Link href="/contact">
-                  {locale === 'az' ? 'Mesaj Göndər' : 'Send Message'}
+                  {t('about.sendMessage', locale)}
                 </Link>
               </Button>
             </div>

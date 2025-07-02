@@ -5,40 +5,35 @@ import { Button } from '@/components/ui/button';
 import { Shield, Calendar, User, ArrowRight } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
 import Link from 'next/link';
+import { t } from '@/lib/localization';
 
 export default function BlogPage() {
   const { locale } = useLocale();
 
   const blogPosts = [
     {
-      title: locale === 'az' ? '2024-də Email Təhlükəsizliyinin Gələcəyi' : 'The Future of Email Security in 2024',
-      excerpt: locale === 'az' 
-        ? 'AI texnologiyasının email təhlükəsizliyinə təsiri və yeni təhdidlər haqqında.'
-        : 'How AI technology is impacting email security and emerging threats.',
+      title: t('blog.future_of_email_security_in_2024', locale),
+      excerpt: t('blog.how_ai_technology_is_impacting_email_security_and_emerging_threats', locale),
       author: 'Elmar Hüseynov',
       date: '2024-01-15',
-      readTime: locale === 'az' ? '5 dəqiqə' : '5 min read',
-      category: locale === 'az' ? 'Təhlükəsizlik' : 'Security'
+      readTime: t('blog.5_minutes_read', locale),
+      category: t('blog.security', locale)
     },
     {
-      title: locale === 'az' ? 'Phishing Hücumlarını Aşkarlamaq üçün 10 Təklif' : '10 Tips to Detect Phishing Attacks',
-      excerpt: locale === 'az'
-        ? 'Komandanızı phishing hücumlarından qorumaq üçün praktik məsləhətlər.'
-        : 'Practical advice to protect your team from phishing attacks.',
+      title: t('blog.10_tips_to_detect_phishing_attacks', locale),
+      excerpt: t('blog.practical_advice_to_protect_your_team_from_phishing_attacks', locale),
       author: 'Günel Məmmədova',
       date: '2024-01-10',
-      readTime: locale === 'az' ? '8 dəqiqə' : '8 min read',
-      category: locale === 'az' ? 'Təlim' : 'Training'
+      readTime: t('blog.8_minutes_read', locale),
+      category: t('blog.training', locale)
     },
     {
-      title: locale === 'az' ? 'OSINT və Email Analizi' : 'OSINT and Email Analysis',
-      excerpt: locale === 'az'
-        ? 'Açıq mənbəli kəşfiyyat məlumatlarından istifadə edərək email təhlükələrini aşkarlamaq.'
-        : 'Using open-source intelligence to detect email threats.',
+      title: t('blog.osint_and_email_analysis', locale),
+      excerpt: t('blog.using_open_source_intelligence_to_detect_email_threats', locale),
       author: 'Tural Qurbanov',
       date: '2024-01-05',
-      readTime: locale === 'az' ? '12 dəqiqə' : '12 min read',
-      category: locale === 'az' ? 'Texnologiya' : 'Technology'
+      readTime: t('blog.12_minutes_read', locale),
+      category: t('blog.technology', locale)
     }
   ];
 
@@ -50,17 +45,14 @@ export default function BlogPage() {
           <div className="flex items-center justify-center space-x-2 mb-4">
             <Shield className="h-8 w-8 text-blue-500" />
             <span className="text-2xl font-bold text-blue-600">
-              {locale === 'az' ? 'Blog' : 'Blog'}
+              {t('blog.blog', locale)}
             </span>
           </div>
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            {locale === 'az' ? 'Təhlükəsizlik Məlumatları' : 'Security Insights'}
+            {t('blog.security_insights', locale)}
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            {locale === 'az'
-              ? 'Email təhlükəsizliyi, phishing aşkarlama və kibertəhlükəsizlik haqqında ən son məlumatlar.'
-              : 'Latest insights on email security, phishing detection, and cybersecurity.'
-            }
+            {t('blog.latest_insights_on_email_security_phishing_detection_and_cybersecurity', locale)}
           </p>
         </div>
       </div>
@@ -92,7 +84,7 @@ export default function BlogPage() {
                   </div>
                   <Button variant="ghost" size="sm" asChild>
                     <Link href="#" className="flex items-center space-x-1">
-                      <span>{locale === 'az' ? 'Oxu' : 'Read'}</span>
+                      <span>{t('blog.read', locale)}</span>
                       <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -108,13 +100,10 @@ export default function BlogPage() {
             <CardContent className="pt-6">
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold">
-                  {locale === 'az' ? 'Daha Çox Məzmun Gəlir' : 'More Content Coming'}
+                  {t('blog.more_content_coming', locale)}
                 </h2>
                 <p className="text-blue-100">
-                  {locale === 'az'
-                    ? 'Tezliklə daha çox təhlükəsizlik məqalələri və təlim materialları əlavə edəcəyik.'
-                    : 'We\'ll be adding more security articles and training materials soon.'
-                  }
+                  {t('blog.we_ll_be_adding_more_security_articles_and_training_materials_soon', locale)}
                 </p>
                 <Button variant="secondary" asChild>
                   <Link href="/contact">

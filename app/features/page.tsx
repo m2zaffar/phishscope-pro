@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
 import Link from 'next/link';
+import { t } from '@/lib/localization';
 
 export default function FeaturesPage() {
   const { locale } = useLocale();
@@ -26,80 +27,68 @@ export default function FeaturesPage() {
   const features = [
     {
       icon: Mail,
-      title: locale === 'az' ? 'Email Təhlili' : 'Email Analysis',
-      description: locale === 'az' 
-        ? 'EML, MSG və ham email məlumatlarını yükləyin və təhlil edin. Avtomatik IOC çıxarma və başlıq təhlili.'
-        : 'Upload and analyze .eml, .msg, and raw email data. Automatic IOC extraction and header analysis.',
+      title: t('features.emailAnalysis', locale),
+      description: t('features.emailAnalysis.description', locale),
       features: [
-        locale === 'az' ? 'Çoxlu format dəstəyi' : 'Multiple format support',
-        locale === 'az' ? 'Avtomatik IOC çıxarma' : 'Automatic IOC extraction',
-        locale === 'az' ? 'Başlıq təhlili' : 'Header analysis',
-        locale === 'az' ? 'Əlavə skanı' : 'Attachment scanning'
+        t('features.emailAnalysis.multipleFormatSupport', locale),
+        t('features.emailAnalysis.automaticIOCextraction', locale),
+        t('features.emailAnalysis.headerAnalysis', locale),
+        t('features.emailAnalysis.attachmentScanning', locale)
       ]
     },
     {
       icon: Shield,
-      title: locale === 'az' ? 'Autentifikasiya Yoxlaması' : 'Authentication Validation',
-      description: locale === 'az'
-        ? 'SPF, DKIM və DMARC protokollarını yoxlayın. Təbii dil izahları ilə.'
-        : 'Validate SPF, DKIM, and DMARC protocols with natural language explanations.',
+      title: t('features.authenticationValidation', locale),
+      description: t('features.authenticationValidation.description', locale),
       features: [
-        'SPF ' + (locale === 'az' ? 'yoxlaması' : 'validation'),
-        'DKIM ' + (locale === 'az' ? 'imza təsdiqi' : 'signature verification'),
-        'DMARC ' + (locale === 'az' ? 'siyasət yoxlaması' : 'policy check'),
-        locale === 'az' ? 'Təbii dil izahları' : 'Natural language explanations'
+        'SPF ' + t('features.authenticationValidation.validation', locale),
+        'DKIM ' + t('features.authenticationValidation.signatureVerification', locale),
+        'DMARC ' + t('features.authenticationValidation.policyCheck', locale),
+        t('features.authenticationValidation.naturalLanguageExplanations', locale)
       ]
     },
     {
       icon: Search,
-      title: 'OSINT ' + (locale === 'az' ? 'Zənginləşdirmə' : 'Enrichment'),
-      description: locale === 'az'
-        ? 'IOC-ları müxtəlif təhdid kəşfiyyatı API-ləri ilə zənginləşdirin.'
-        : 'Enrich IOCs with multiple threat intelligence APIs.',
+      title: 'OSINT ' + t('features.enrichment', locale),
+      description: t('features.enrichment.description', locale),
       features: [
-        'AbuseIPDB ' + (locale === 'az' ? 'inteqrasiyası' : 'integration'),
-        'VirusTotal ' + (locale === 'az' ? 'skanı' : 'scanning'),
-        'URLScan.io ' + (locale === 'az' ? 'təhlili' : 'analysis'),
-        'WHOISXML ' + (locale === 'az' ? 'məlumatları' : 'data')
+        'AbuseIPDB ' + t('features.enrichment.integration', locale),
+        'VirusTotal ' + t('features.enrichment.scanning', locale),
+        'URLScan.io ' + t('features.enrichment.analysis', locale),
+        'WHOISXML ' + t('features.enrichment.data', locale)
       ]
     },
     {
       icon: Brain,
-      title: 'AI ' + (locale === 'az' ? 'Təhdid Təhlili' : 'Threat Analysis'),
-      description: locale === 'az'
-        ? 'GPT-4 ilə təhdid qiymətləndirməsi və MITRE ATT&CK xəritəsi.'
-        : 'GPT-4 powered threat assessment and MITRE ATT&CK mapping.',
+      title: 'AI ' + t('features.threatAnalysis', locale),
+      description: t('features.threatAnalysis.description', locale),
       features: [
-        locale === 'az' ? 'Təhdid xalı' : 'Threat scoring',
-        'MITRE ATT&CK ' + (locale === 'az' ? 'xəritəsi' : 'mapping'),
-        locale === 'az' ? 'Kampaniya atributu' : 'Campaign attribution',
-        locale === 'az' ? 'Avtomatik hesabat' : 'Automated reporting'
+        t('features.threatAnalysis.threatScoring', locale),
+        'MITRE ATT&CK ' + t('features.threatAnalysis.mapping', locale),
+        t('features.threatAnalysis.campaignAttribution', locale),
+        t('features.threatAnalysis.automatedReporting', locale)
       ]
     },
     {
       icon: Zap,
-      title: locale === 'az' ? 'Sürətli Nəticələr' : 'Fast Results',
-      description: locale === 'az'
-        ? 'Saniyələr ərzində nəticələr alın, saatlar deyil.'
-        : 'Get results in seconds, not hours.',
+      title: t('features.fastResults', locale),
+      description: t('features.fastResults.description', locale),
       features: [
-        locale === 'az' ? 'Real vaxt təhlil' : 'Real-time analysis',
-        locale === 'az' ? 'Paralel emal' : 'Parallel processing',
-        locale === 'az' ? 'Keş sistemi' : 'Caching system',
-        locale === 'az' ? 'API optimallaşdırması' : 'API optimization'
+        t('features.fastResults.realTimeAnalysis', locale),
+        t('features.fastResults.parallelProcessing', locale),
+        t('features.fastResults.cachingSystem', locale),
+        t('features.fastResults.apiOptimization', locale)
       ]
     },
     {
       icon: Users,
-      title: locale === 'az' ? 'Komanda Əməkdaşlığı' : 'Team Collaboration',
-      description: locale === 'az'
-        ? 'Hesabatları paylaşın və komanda ilə əməkdaşlıq edin.'
-        : 'Share reports and collaborate with your team.',
+      title: t('features.teamCollaboration', locale),
+      description: t('features.teamCollaboration.description', locale),
       features: [
-        locale === 'az' ? 'Paylaşılan dashboard' : 'Shared dashboard',
-        locale === 'az' ? 'Rol əsaslı giriş' : 'Role-based access',
-        locale === 'az' ? 'Komanda şərhləri' : 'Team comments',
-        locale === 'az' ? 'Audit izi' : 'Audit trail'
+        t('features.teamCollaboration.sharedDashboard', locale),
+        t('features.teamCollaboration.roleBasedAccess', locale),
+        t('features.teamCollaboration.teamComments', locale),
+        t('features.teamCollaboration.auditTrail', locale)
       ]
     }
   ];
@@ -107,31 +96,23 @@ export default function FeaturesPage() {
   const additionalFeatures = [
     {
       icon: Globe,
-      title: locale === 'az' ? 'Qlobal Təhdid Kəşfiyyatı' : 'Global Threat Intelligence',
-      description: locale === 'az' 
-        ? 'Dünya miqyasında təhdid məlumatları bazası'
-        : 'Worldwide threat intelligence database'
+      title: t('features.globalThreatIntelligence', locale),
+      description: t('features.globalThreatIntelligence.description', locale)
     },
     {
       icon: Lock,
-      title: locale === 'az' ? 'Müəssisə Təhlükəsizliyi' : 'Enterprise Security',
-      description: locale === 'az'
-        ? 'SOC 2 Type II uyğunluğu və şifrələmə'
-        : 'SOC 2 Type II compliance and encryption'
+      title: t('features.enterpriseSecurity', locale),
+      description: t('features.enterpriseSecurity.description', locale)
     },
     {
       icon: BarChart3,
-      title: locale === 'az' ? 'Təhlil Paneli' : 'Analytics Dashboard',
-      description: locale === 'az'
-        ? 'Təhdid tendensiyaları və metrikalar'
-        : 'Threat trends and metrics'
+      title: t('features.analyticsDashboard', locale),
+      description: t('features.analyticsDashboard.description', locale)
     },
     {
       icon: FileText,
-      title: locale === 'az' ? 'Avtomatik Hesabatlar' : 'Automated Reports',
-      description: locale === 'az'
-        ? 'PDF, JSON və Markdown formatlarında'
-        : 'PDF, JSON, and Markdown formats'
+      title: t('features.automatedReports', locale),
+      description: t('features.automatedReports.description', locale)
     }
   ];
 
@@ -140,16 +121,13 @@ export default function FeaturesPage() {
       {/* Header */}
       <div className="text-center space-y-4">
         <Badge className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">
-          {locale === 'az' ? 'Xüsusiyyətlər' : 'Features'}
+          {t('features.title', locale)}
         </Badge>
         <h1 className="text-4xl lg:text-5xl font-bold">
-          {locale === 'az' ? 'Güclü Kibertəhlükəsizlik Alətləri' : 'Powerful Cybersecurity Tools'}
+          {t('features.powerfulCybersecurityTools', locale)}
         </h1>
         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-          {locale === 'az' 
-            ? 'PhishScope Pro ilə email təhdidlərini aşkarlamaq, təhlil etmək və qarşısını almaq üçün lazım olan hər şey'
-            : 'Everything you need to detect, analyze, and prevent email threats with PhishScope Pro'
-          }
+          {t('features.everythingYouNeed', locale)}
         </p>
       </div>
 
@@ -186,13 +164,10 @@ export default function FeaturesPage() {
       <div className="space-y-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold mb-4">
-            {locale === 'az' ? 'Əlavə İmkanlar' : 'Additional Capabilities'}
+            {t('features.additionalCapabilities', locale)}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            {locale === 'az'
-              ? 'Platformamızın təklif etdiyi digər güclü xüsusiyyətlər'
-              : 'Other powerful features our platform offers'
-            }
+            {t('features.otherPowerfulFeatures', locale)}
           </p>
         </div>
 
@@ -216,27 +191,21 @@ export default function FeaturesPage() {
       {/* CTA Section */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-2xl p-8 text-center text-white">
         <h2 className="text-3xl font-bold mb-4">
-          {locale === 'az' 
-            ? 'Bu gün başlayın'
-            : 'Get started today'
-          }
+          {t('features.getStartedToday', locale)}
         </h2>
         <p className="text-xl text-blue-100 mb-6 max-w-2xl mx-auto">
-          {locale === 'az'
-            ? 'PhishScope Pro ilə email təhlükəsizliyinizi növbəti səviyyəyə çıxarın'
-            : 'Take your email security to the next level with PhishScope Pro'
-          }
+          {t('features.takeYourEmailSecurity', locale)}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" variant="secondary" asChild>
             <Link href="/dashboard">
-              {locale === 'az' ? 'Pulsuz başla' : 'Start Free Trial'}
+              {t('features.startFreeTrial', locale)}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-blue-600" asChild>
             <Link href="/contact">
-              {locale === 'az' ? 'Satış ilə əlaqə' : 'Contact Sales'}
+              {t('features.contactSales', locale)}
             </Link>
           </Button>
         </div>

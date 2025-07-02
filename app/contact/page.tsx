@@ -28,6 +28,7 @@ import {
   Rocket
 } from 'lucide-react';
 import { useLocale } from '@/hooks/use-locale';
+import { t } from '@/lib/localization';
 
 export default function ContactPage() {
   const { locale } = useLocale();
@@ -68,7 +69,7 @@ export default function ContactPage() {
     // Simulate form submission with creative animation
     setTimeout(() => {
       setIsSubmitting(false);
-      alert(locale === 'az' ? 'Mesajınız göndərildi! 🚀' : 'Message sent successfully! 🚀');
+      alert(t('contact.message_sent', locale));
       setFormData({
         name: '',
         email: '',
@@ -85,31 +86,31 @@ export default function ContactPage() {
       icon: Mail,
       title: 'Email',
       value: 'hello@phishscope.pro',
-      description: locale === 'az' ? 'Ümumi sorğular üçün' : 'For general inquiries',
+      description: t('contact.general_inquiries', locale),
       color: 'from-blue-500 to-cyan-500',
       bgColor: 'bg-blue-50 dark:bg-blue-950'
     },
     {
       icon: Phone,
-      title: locale === 'az' ? 'Telefon' : 'Phone',
+      title: t('contact.phone', locale),
       value: '+1 (555) 123-4567',
-      description: locale === 'az' ? 'İş saatlarında' : 'During business hours',
+      description: t('contact.during_business_hours', locale),
       color: 'from-green-500 to-emerald-500',
       bgColor: 'bg-green-50 dark:bg-green-950'
     },
     {
       icon: MapPin,
-      title: locale === 'az' ? 'Ünvan' : 'Address',
+      title: t('contact.address', locale),
       value: 'Bakı, Azərbaycan',
-      description: locale === 'az' ? 'Baş ofis' : 'Headquarters',
+      description: t('contact.headquarters', locale),
       color: 'from-purple-500 to-pink-500',
       bgColor: 'bg-purple-50 dark:bg-purple-950'
     },
     {
       icon: Clock,
-      title: locale === 'az' ? 'İş saatları' : 'Business Hours',
+      title: t('contact.business_hours', locale),
       value: '9:00 - 18:00 AZT',
-      description: locale === 'az' ? 'Bazar ertəsi - Cümə' : 'Monday - Friday',
+      description: t('contact.monday_friday', locale),
       color: 'from-orange-500 to-red-500',
       bgColor: 'bg-orange-50 dark:bg-orange-950'
     }
@@ -118,41 +119,41 @@ export default function ContactPage() {
   const inquiryTypes = [
     { 
       value: 'sales', 
-      label: locale === 'az' ? 'Satış sorğusu' : 'Sales inquiry',
+      label: t('contact.sales_inquiry', locale),
       icon: Building,
-      description: locale === 'az' ? 'Qiymətlər və planlar' : 'Pricing and plans'
+      description: t('contact.pricing_plans', locale)
     },
     { 
       value: 'support', 
-      label: locale === 'az' ? 'Texniki dəstək' : 'Technical support',
+      label: t('contact.technical_support', locale),
       icon: Headphones,
-      description: locale === 'az' ? 'Texniki problemlər' : 'Technical issues'
+      description: t('contact.technical_issues', locale)
     },
     { 
       value: 'partnership', 
-      label: locale === 'az' ? 'Tərəfdaşlıq' : 'Partnership',
+      label: t('contact.partnership', locale),
       icon: Users,
-      description: locale === 'az' ? 'İş tərəfdaşlığı' : 'Business partnership'
+      description: t('contact.business_partnership', locale)
     },
     { 
       value: 'demo', 
-      label: locale === 'az' ? 'Demo tələbi' : 'Demo request',
+      label: t('contact.demo_request', locale),
       icon: Rocket,
-      description: locale === 'az' ? 'Canlı demo' : 'Live demo'
+      description: t('contact.live_demo', locale)
     },
     { 
       value: 'other', 
-      label: locale === 'az' ? 'Digər' : 'Other',
+      label: t('contact.other', locale),
       icon: MessageCircle,
-      description: locale === 'az' ? 'Digər suallar' : 'Other questions'
+      description: t('contact.other_questions', locale)
     }
   ];
 
   const stats = [
-    { number: '24h', label: locale === 'az' ? 'Cavab müddəti' : 'Response Time' },
-    { number: '99%', label: locale === 'az' ? 'Məmnuniyyət' : 'Satisfaction' },
-    { number: '500+', label: locale === 'az' ? 'Müştəri' : 'Customers' },
-    { number: '24/7', label: locale === 'az' ? 'Dəstək' : 'Support' }
+    { number: '24h', label: t('contact.response_time', locale) },
+    { number: '99%', label: t('contact.satisfaction', locale) },
+    { number: '500+', label: t('contact.customers', locale) },
+    { number: '24/7', label: t('contact.support', locale) }
   ];
 
   return (
@@ -170,20 +171,17 @@ export default function ContactPage() {
             <div className="flex items-center justify-center space-x-2 mb-6">
               <Sparkles className="h-8 w-8 text-blue-500 animate-pulse" />
               <Badge className="bg-gradient-to-r from-blue-500 to-purple-500 text-white border-0">
-                {locale === 'az' ? 'Əlaqə' : 'Contact'}
+                {t('contact.contact', locale)}
               </Badge>
               <Sparkles className="h-8 w-8 text-purple-500 animate-pulse" />
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
-              {locale === 'az' ? 'Bizimlə Əlaqə' : 'Get in Touch'}
+              {t('contact.get_in_touch', locale)}
             </h1>
             
             <p className="text-xl lg:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-              {locale === 'az' 
-                ? 'Suallarınız var? Komandamız sizə kömək etməyə hazırdır. 🚀'
-                : 'Have questions? Our team is ready to help you. 🚀'
-              }
+              {t('contact.ready_to_help', locale)}
             </p>
 
             {/* Stats Cards */}
@@ -213,13 +211,10 @@ export default function ContactPage() {
                 </div>
               </div>
               <CardTitle className="text-2xl font-bold">
-                {locale === 'az' ? 'Mesaj Göndərin' : 'Send us a Message'}
+                {t('contact.send_us_a_message', locale)}
               </CardTitle>
               <p className="text-muted-foreground">
-                {locale === 'az' 
-                  ? 'Mesajınızı yazın və tezliklə cavab alacaqsınız'
-                  : 'Write your message and get a response quickly'
-                }
+                {t('contact.write_message_get_response', locale)}
               </p>
             </CardHeader>
             <CardContent>
@@ -227,27 +222,27 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name" className="text-sm font-medium">
-                      {locale === 'az' ? 'Ad Soyad' : 'Full Name'} *
+                      {t('contact.full_name', locale)} *
                     </Label>
                     <Input
                       id="name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder={locale === 'az' ? 'Adınızı daxil edin' : 'Enter your name'}
+                      placeholder={t('contact.enter_your_name', locale)}
                       className="border-2 focus:border-blue-500 transition-colors"
                       required
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-sm font-medium">
-                      {locale === 'az' ? 'Email Ünvanı' : 'Email Address'} *
+                      {t('contact.email_address', locale)} *
                     </Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder={locale === 'az' ? 'Email ünvanınızı daxil edin' : 'Enter your email'}
+                      placeholder={t('contact.enter_your_email', locale)}
                       className="border-2 focus:border-blue-500 transition-colors"
                       required
                     />
@@ -257,23 +252,23 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="company" className="text-sm font-medium">
-                      {locale === 'az' ? 'Şirkət' : 'Company'}
+                      {t('contact.company', locale)}
                     </Label>
                     <Input
                       id="company"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder={locale === 'az' ? 'Şirkət adı' : 'Company name'}
+                      placeholder={t('contact.company_name', locale)}
                       className="border-2 focus:border-blue-500 transition-colors"
                     />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="inquiry_type" className="text-sm font-medium">
-                      {locale === 'az' ? 'Sorğu Növü' : 'Inquiry Type'}
+                      {t('contact.inquiry_type', locale)}
                     </Label>
                     <Select value={formData.inquiry_type} onValueChange={(value) => setFormData({ ...formData, inquiry_type: value })}>
                       <SelectTrigger className="border-2 focus:border-blue-500 transition-colors">
-                        <SelectValue placeholder={locale === 'az' ? 'Seçin' : 'Select'} />
+                        <SelectValue placeholder={t('contact.select', locale)} />
                       </SelectTrigger>
                       <SelectContent>
                         {inquiryTypes.map((type) => (
@@ -292,13 +287,13 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="subject" className="text-sm font-medium">
-                    {locale === 'az' ? 'Mövzu' : 'Subject'} *
+                    {t('contact.subject', locale)} *
                   </Label>
                   <Input
                     id="subject"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder={locale === 'az' ? 'Mesajınızın mövzusu' : 'Subject of your message'}
+                    placeholder={t('contact.subject_of_message', locale)}
                     className="border-2 focus:border-blue-500 transition-colors"
                     required
                   />
@@ -306,13 +301,13 @@ export default function ContactPage() {
 
                 <div className="space-y-2">
                   <Label htmlFor="message" className="text-sm font-medium">
-                    {locale === 'az' ? 'Mesaj' : 'Message'} *
+                    {t('contact.message', locale)} *
                   </Label>
                   <Textarea
                     id="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder={locale === 'az' ? 'Mesajınızı yazın...' : 'Write your message...'}
+                    placeholder={t('contact.write_your_message', locale)}
                     rows={6}
                     className="border-2 focus:border-blue-500 transition-colors resize-none"
                     required
@@ -327,12 +322,12 @@ export default function ContactPage() {
                   {isSubmitting ? (
                     <div className="flex items-center space-x-2">
                       <div className="w-6 h-6 border-3 border-white border-t-transparent rounded-full animate-spin"></div>
-                      <span>{locale === 'az' ? 'Göndərilir...' : 'Sending...'}</span>
+                      <span>{t('contact.sending', locale)}</span>
                     </div>
                   ) : (
                     <>
                       <Send className="mr-3 h-6 w-6" />
-                      {locale === 'az' ? 'Mesaj Göndər' : 'Send Message'}
+                      {t('contact.send_message', locale)}
                       <ArrowRight className="ml-3 h-6 w-6" />
                     </>
                   )}
@@ -378,15 +373,15 @@ export default function ContactPage() {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Zap className="h-5 w-5 text-blue-500" />
-                  <span>{locale === 'az' ? 'Sürətli Əlaqə' : 'Quick Contact'}</span>
+                  <span>{t('contact.quick_contact', locale)}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors cursor-pointer">
                     <div>
-                      <h4 className="font-semibold text-sm">{locale === 'az' ? 'Satış' : 'Sales'}</h4>
-                      <p className="text-xs text-muted-foreground">{locale === 'az' ? 'Qiymətlər və planlar' : 'Pricing and plans'}</p>
+                      <h4 className="font-semibold text-sm">{t('contact.sales', locale)}</h4>
+                      <p className="text-xs text-muted-foreground">{t('contact.pricing_plans', locale)}</p>
                     </div>
                     <a href="mailto:sales@phishscope.pro" className="text-blue-600 hover:text-blue-800">
                       <ArrowRight className="h-4 w-4" />
@@ -395,8 +390,8 @@ export default function ContactPage() {
                   
                   <div className="flex items-center justify-between p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors cursor-pointer">
                     <div>
-                      <h4 className="font-semibold text-sm">{locale === 'az' ? 'Dəstək' : 'Support'}</h4>
-                      <p className="text-xs text-muted-foreground">{locale === 'az' ? 'Texniki problemlər' : 'Technical issues'}</p>
+                      <h4 className="font-semibold text-sm">{t('contact.support', locale)}</h4>
+                      <p className="text-xs text-muted-foreground">{t('contact.technical_issues', locale)}</p>
                     </div>
                     <a href="mailto:support@phishscope.pro" className="text-blue-600 hover:text-blue-800">
                       <ArrowRight className="h-4 w-4" />
@@ -405,8 +400,8 @@ export default function ContactPage() {
                   
                   <div className="flex items-center justify-between p-3 bg-white/50 rounded-lg hover:bg-white/70 transition-colors cursor-pointer">
                     <div>
-                      <h4 className="font-semibold text-sm">{locale === 'az' ? 'Demo' : 'Demo'}</h4>
-                      <p className="text-xs text-muted-foreground">{locale === 'az' ? 'Canlı demo tələbi' : 'Live demo request'}</p>
+                      <h4 className="font-semibold text-sm">{t('contact.demo', locale)}</h4>
+                      <p className="text-xs text-muted-foreground">{t('contact.live_demo_request', locale)}</p>
                     </div>
                     <a href="/demo" className="text-blue-600 hover:text-blue-800">
                       <ArrowRight className="h-4 w-4" />
@@ -425,7 +420,7 @@ export default function ContactPage() {
               <div className="flex items-center justify-center mb-4">
                 <Target className="h-8 w-8 text-blue-500 mr-2" />
                 <CardTitle className="text-2xl font-bold">
-                  {locale === 'az' ? 'Tez-tez Verilən Suallar' : 'Frequently Asked Questions'}
+                  {t('contact.frequently_asked_questions', locale)}
                 </CardTitle>
               </div>
             </CardHeader>
@@ -435,26 +430,20 @@ export default function ContactPage() {
                   <div className="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:shadow-lg transition-all duration-300">
                     <h4 className="font-semibold mb-2 flex items-center">
                       <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                      {locale === 'az' ? 'Cavab vermə müddəti nə qədərdir?' : 'What is your response time?'}
+                      {t('contact.what_is_response_time', locale)}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {locale === 'az' 
-                        ? 'Ümumi sorğulara 24 saat ərzində, satış sorğularına 4 saat ərzində cavab veririk.'
-                        : 'We respond to general inquiries within 24 hours and sales inquiries within 4 hours.'
-                      }
+                      {t('contact.general_inquiries_response', locale)}
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl hover:shadow-lg transition-all duration-300">
                     <h4 className="font-semibold mb-2 flex items-center">
                       <Rocket className="h-4 w-4 text-blue-500 mr-2" />
-                      {locale === 'az' ? 'Demo tələb edə bilərəmmi?' : 'Can I request a demo?'}
+                      {t('contact.can_i_request_demo', locale)}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {locale === 'az' 
-                        ? 'Bəli, satış komandamızla əlaqə saxlayaraq canlı demo tələb edə bilərsiniz.'
-                        : 'Yes, you can request a live demo by contacting our sales team.'
-                      }
+                      {t('contact.sales_team_request', locale)}
                     </p>
                   </div>
                 </div>
@@ -463,26 +452,20 @@ export default function ContactPage() {
                   <div className="p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl hover:shadow-lg transition-all duration-300">
                     <h4 className="font-semibold mb-2 flex items-center">
                       <Headphones className="h-4 w-4 text-purple-500 mr-2" />
-                      {locale === 'az' ? 'Telefon dəstəyi varmı?' : 'Do you offer phone support?'}
+                      {t('contact.phone_support', locale)}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {locale === 'az' 
-                        ? 'Team və Enterprise planları üçün telefon dəstəyi təklif edirik.'
-                        : 'We offer phone support for Team and Enterprise plans.'
-                      }
+                      {t('contact.team_enterprise_plans', locale)}
                     </p>
                   </div>
                   
                   <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl hover:shadow-lg transition-all duration-300">
                     <h4 className="font-semibold mb-2 flex items-center">
                       <Building className="h-4 w-4 text-orange-500 mr-2" />
-                      {locale === 'az' ? 'Yerində quraşdırma mümkündürmü?' : 'Is on-premise deployment available?'}
+                      {t('contact.on_premise_deployment', locale)}
                     </h4>
                     <p className="text-sm text-muted-foreground">
-                      {locale === 'az' 
-                        ? 'Enterprise müştərilər üçün yerində quraşdırma seçimi mövcuddur.'
-                        : 'On-premise deployment is available for Enterprise customers.'
-                      }
+                      {t('contact.enterprise_customers', locale)}
                     </p>
                   </div>
                 </div>
@@ -498,28 +481,22 @@ export default function ContactPage() {
               <div className="max-w-3xl mx-auto space-y-6">
                 <Shield className="h-16 w-16 mx-auto text-white/80" />
                 <h2 className="text-3xl lg:text-4xl font-bold">
-                  {locale === 'az' 
-                    ? 'Email Təhlükəsizliyinizi Təkmilləşdirin'
-                    : 'Enhance Your Email Security'
-                  }
+                  {t('contact.enhance_email_security', locale)}
                 </h2>
                 <p className="text-xl text-blue-100">
-                  {locale === 'az'
-                    ? 'PhishScope Pro ilə komandanızı qoruyun və təhlükəli emailləri aşkarlayın.'
-                    : 'Protect your team and detect malicious emails with PhishScope Pro.'
-                  }
+                  {t('contact.protect_team_detect_malicious', locale)}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="secondary" asChild className="bg-white text-blue-600 hover:bg-gray-100 font-bold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
                     <a href="/demo">
                       <Rocket className="mr-3 h-6 w-6" />
-                      {locale === 'az' ? 'Demo İzlə' : 'Watch Demo'}
+                      {t('contact.watch_demo', locale)}
                     </a>
                   </Button>
                   <Button size="lg" variant="outline" className="border-3 border-white text-white hover:bg-white hover:text-blue-600 font-bold px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300" asChild>
                     <a href="/pricing">
                       <Target className="mr-3 h-6 w-6" />
-                      {locale === 'az' ? 'Qiymətlər' : 'View Pricing'}
+                      {t('contact.view_pricing', locale)}
                     </a>
                   </Button>
                 </div>
