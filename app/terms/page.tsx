@@ -123,12 +123,10 @@ export default function TermsPage() {
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  {section.content.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-muted-foreground">{section.content}</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
